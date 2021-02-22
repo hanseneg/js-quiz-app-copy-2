@@ -1,9 +1,17 @@
 import React from "react"
+import Welcome from "./Welcome";
+import Leaderboard from "./Leaderboard";
+import Questions from "./Questions";
+// import {Route, Switch, Link} from "react-router-dom";
+
 
 function App(){
     return(
         <div>
-            App Component
+            
+            <Welcome />
+            <Leaderboard/>
+            <Questions />
         </div>
     )
 }
