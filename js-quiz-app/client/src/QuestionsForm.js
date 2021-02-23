@@ -3,6 +3,8 @@ import React, { useState } from "react"
 function QuestionsForm(props) {
     const [value, setValue] = useState()
     const [showQuestion, setShowQuestion] = useState(true)
+    const [showCorrect, setShowCorrect] = useState(false)
+    const [showIncorrect, setShowIncorrect] = useState(false)
 
     function selected(event) {
         setValue(event.target.value)
@@ -14,49 +16,58 @@ function QuestionsForm(props) {
         setShowQuestion(false)
         console.log(value)
         props.submitQuestion(value)
+
+        value === "true" ? setShowCorrect(true) : setShowIncorrect(true)
     }
 
     return (
-        <div style={{ display: showQuestion ? "block" : "none" }}>
-            Question: {`${props.questions.question}?`}
-            <form onSubmit={displayChange}>
-                {/*Answer One*/}
-                <input
-                    type="radio"
-                    name={props.questions._id}
-                    value={props.questions.options[0].isCorrect}
-                    onChange={selected}
-                />
-                {props.questions.options[0].answer}
+        <div>
+            <div style={{ display: showQuestion ? "block" : "none" }}>
+                Question: {`${props.questions.question}?`}
+                <form onSubmit={displayChange}>
+                    {/*Answer One*/}
+                    <input
+                        type="radio"
+                        name={props.questions._id}
+                        value={props.questions.options[0].isCorrect}
+                        onChange={selected}
+                    />
+                    {props.questions.options[0].answer}
 
-                {/*Answer Two*/}
-                <input
-                    type="radio"
-                    name={props.questions._id}
-                    value={props.questions.options[1].isCorrect}
-                    onChange={selected}
-                />
-                {props.questions.options[1].answer}
+                    {/*Answer Two*/}
+                    <input
+                        type="radio"
+                        name={props.questions._id}
+                        value={props.questions.options[1].isCorrect}
+                        onChange={selected}
+                    />
+                    {props.questions.options[1].answer}
 
-                {/*Answer Three*/}
-                <input
-                    type="radio"
-                    name={props.questions._id}
-                    value={props.questions.options[2].isCorrect}
-                    onChange={selected}
-                />
-                {props.questions.options[2].answer}
+                    {/*Answer Three*/}
+                    <input
+                        type="radio"
+                        name={props.questions._id}
+                        value={props.questions.options[2].isCorrect}
+                        onChange={selected}
+                    />
+                    {props.questions.options[2].answer}
 
-                {/*Answer Four*/}
-                <input
-                    type="radio"
-                    name={props.questions._id}
-                    value={props.questions.options[3].isCorrect}
-                    onChange={selected}
-                />
-                {props.questions.options[3].answer}
-                <button>Submit Question</button>
-            </form>
+                    {/*Answer Four*/}
+                    <input
+                        type="radio"
+                        name={props.questions._id}
+                        value={props.questions.options[3].isCorrect}
+                        onChange={selected}
+                    />
+                    {props.questions.options[3].answer}
+                    <br/>
+                    <button>Submit Question</button>
+                </form>
+            </div>
+            <div>
+                <h1 style={{ display: showCorrect ? "block" : "none", color: "green" }}>Correct Answer!</h1>
+                <h1 style={{ display: showIncorrect ? "block" : "none", color: "red" }}>Incorrect Answer!</h1>
+            </div>
         </div>
     )
 }
