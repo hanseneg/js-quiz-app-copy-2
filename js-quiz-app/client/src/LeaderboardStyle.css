@@ -1,0 +1,23 @@
+/*Leaderboard */
+
+.leaderboard h1, .leaderboard h2{
+    text-align: center;
+}
+
+.score {
+    border: 2px solid grey;
+    box-shadow: 2px 1px 3px black;
+    margin: 5px;
+    box-sizing:border-box;
+    width: 100%;
+    
+}
+.score h3{
+    display: inline-block;
+    padding-left: 50px;
+}
+.score p {
+    display: block;
+    padding-right: 50px;
+    float: right;
+}
