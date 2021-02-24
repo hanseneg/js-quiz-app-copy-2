@@ -105,7 +105,6 @@ function Questions(props) {
             ]
         }
     ]
-
     //const [questions, setQuestions] = useState([])
     const [submittedAnswers, setSubmittedAnswers] = useState([])
     const [finalScore, setFinalScore] = useState(0)
