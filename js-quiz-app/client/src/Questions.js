@@ -1,6 +1,7 @@
-import React, { useState, /*useEffect*/ } from 'react'
-//import axios from "axios"
+import React, { useState, useEffect } from 'react'
+import axios from "axios"
 import QuestionsForm from "./QuestionsForm"
+import { useHistory } from "react-router-dom"
 
 function Questions(props) {
     const sampleQuestions = [
@@ -110,11 +111,13 @@ function Questions(props) {
     const [finalScore, setFinalScore] = useState(0)
     const [showFinalScore, setShowFinalScore] = useState(false)
 
-    /*useEffect(() => {
-        axios.get("")
+    let history = useHistory()
+
+    useEffect(() => {
+        axios.get("/questions")
             .then(response => setQuestions(response.data))
             .catch(error => console.log(error))
-    }, [])*/
+    }, [])
 
     function submitQuestion(value) {
         console.log(value)
@@ -131,9 +134,14 @@ function Questions(props) {
         setShowFinalScore(true)
     }
 
-    let quizQuestions = sampleQuestions.map(each => {
+    function goToLeaderBoard(event) {
+        event.preventDefault()
+        history.push("/leaderboard")
+    }
+
+    let quizQuestions = questions.map(each => {
         return (
-            <QuestionsForm questions={each} submitQuestion={submitQuestion} />
+            <QuestionsForm key={each._id} questions={each} submitQuestion={submitQuestion} />
         )
     })
     return (
@@ -141,6 +149,7 @@ function Questions(props) {
             <h1>Questions</h1>
             {quizQuestions}
             <button onClick={scoreQuiz}>Score Quiz</button>
+            <button onClick={goToLeaderBoard}>Scores</button>
             <h1 style={{ display: showFinalScore ? "block" : "none" }}>Final Score: {`You got ${finalScore}/10 correct!`}</h1>
         </div>
     )
