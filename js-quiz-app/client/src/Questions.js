@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from "axios"
 import QuestionsForm from "./QuestionsForm"
+import {UserContext} from "./UserContext.js"
 import { useHistory } from "react-router-dom"
 
 function Questions(props) {
@@ -8,6 +9,8 @@ function Questions(props) {
     const [submittedAnswers, setSubmittedAnswers] = useState([])
     const [finalScore, setFinalScore] = useState(0)
     const [showFinalScore, setShowFinalScore] = useState(false)
+
+    const {user} = useContext(UserContext)
 
     let history = useHistory()
 
@@ -32,7 +35,7 @@ function Questions(props) {
         setShowFinalScore(true)
 
         let userScore = {
-            user: "NewUser",
+            user: user,
             score: totalCorrect.length
         }
 
@@ -57,7 +60,7 @@ function Questions(props) {
             {quizQuestions}
             <button onClick={scoreQuiz}>Score Quiz</button>
             <button onClick={goToLeaderBoard}>Scores</button>
-            <h1 style={{ display: showFinalScore ? "block" : "none" }}>Final Score: {`You got ${finalScore}/10 correct!`}</h1>
+            <h1 style={{ display: showFinalScore ? "block" : "none" }}>Final Score: {`${user} you got ${finalScore}/10 correct!`}</h1>
         </div>
     )
 }
