@@ -30,6 +30,15 @@ function Questions(props) {
         setFinalScore(totalCorrect.length)
         console.log(finalScore)
         setShowFinalScore(true)
+
+        let userScore = {
+            user: "NewUser",
+            score: totalCorrect.length
+        }
+
+        axios.post("/users", userScore)
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error))
     }
 
     function goToLeaderBoard(event) {
