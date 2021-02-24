@@ -52,7 +52,7 @@ app.listen(9000, () => {
         ] 
     },
     {
-        question: "Which of the following is not a primitive data type",
+        question: "Which of the following is not a primitive data type?",
         options: [
             {answer: `Boolean`, isCorrect = false},
             {answer: `String`, isCorrect = false}, 

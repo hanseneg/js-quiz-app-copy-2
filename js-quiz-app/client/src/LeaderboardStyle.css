@@ -12,11 +12,19 @@
     width: 100%;
     
 }
-.score h3{
+.user-score {
+    border: 3px solid black;
+    box-shadow: 2px 1px 3px grey;
+    background-color: lightgreen;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.score h3, .user-score h3{
     display: inline-block;
     padding-left: 50px;
 }
-.score p {
+.score p, .user-score p {
     display: block;
     padding-right: 50px;
     float: right;
