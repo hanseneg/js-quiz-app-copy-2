@@ -1,18 +1,20 @@
-import React from 'react'
-import {useState} from 'react';
+import React, {useState, useContext} from 'react'
 import {useHistory} from "react-router-dom"
+import {UserContext} from "./UserContext"
 
 function Welcome(props){
+    
     const [user, setUser] = useState("")
     let history = useHistory();
 
+    const context = useContext(UserContext)
 
     const handleChange = (e) => {
         setUser(e.target.value)
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(user);
+        context.setUser(user);
         history.push("/questions");
         
     }
