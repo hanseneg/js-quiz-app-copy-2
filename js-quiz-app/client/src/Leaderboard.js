@@ -20,18 +20,19 @@ function Leaderboard(props){
   const [scores, setScores] = useState("");
   const context = useContext(UserContext);
   const [rank, setRank] = useState(null);
+
   
 
- useEffect(() => {
-
+ useEffect(function getScores(){
     axios.get("/users")
-        .then(res => {
-            setScores(res.data.sort((a,b) => b.score - a.score));
-            const playerIndex = scores.findIndex(each => each.user === context.user );
-            setRank(playerIndex + 1);
-        })
-        .catch(err => console.log(err));
- }, [])
+    .then(res => {
+        setScores(res.data.sort((a,b) => b.score - a.score));
+        const playerIndex = scores.findIndex(each => each.user === context.user );
+        setRank(playerIndex + 1);
+    })
+    .catch(err => console.log(err))
+
+  }, [context.user, scores])
 
  
 
