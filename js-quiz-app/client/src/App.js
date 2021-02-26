@@ -7,7 +7,7 @@ import {UserContextProvider} from "./UserContext";
 
 function App(){
     return(
-        <div>
+        <div className="app">
             <UserContextProvider>
                 <Switch>
                     <Route exact path="/">

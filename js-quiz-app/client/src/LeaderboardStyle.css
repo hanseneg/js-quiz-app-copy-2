@@ -4,26 +4,33 @@
     text-align: center;
 }
 
-.score {
-    border: 2px solid grey;
-    box-shadow: 2px 1px 3px black;
-    margin: 5px;
-    box-sizing:border-box;
-    width: 100%;
-    
+.leaderboard h2 {
+    font-size: 25px;
 }
-.user-score {
-    border: 3px solid black;
-    box-shadow: 2px 1px 3px grey;
-    background-color: lightgreen;
+
+.score {
+    border: 2px solid #323330;
     margin: 5px;
     box-sizing: border-box;
-    width: 100%;
+    width: 99%;
+    background-color: white;
+    text-align: left;
 }
+
+.user-score {
+    border: 2px solid #323330;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 99%;
+    background-color: white;
+    text-align: left;
+}
+
 .score h3, .user-score h3{
     display: inline-block;
     padding-left: 50px;
 }
+
 .score p, .user-score p {
     display: block;
     padding-right: 50px;

@@ -26,6 +26,7 @@ function Welcome(props){
 
          <form name="user-form" onSubmit={handleSubmit}>
              <input
+             className="input"
              type="text"
              name="user"
              onChange={handleChange}
@@ -36,6 +37,7 @@ function Welcome(props){
              <button>Submit and Start Game!</button>
 
          </form>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png" alt="Javascript Logo"></img>
      </div>
      
 
