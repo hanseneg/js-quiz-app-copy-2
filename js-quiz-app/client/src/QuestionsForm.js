@@ -23,42 +23,50 @@ function QuestionsForm(props) {
     return (
         <div>
             <div style={{ display: showQuestion ? "block" : "none" }}>
-                Question: {`${props.questions.question}?`}
-                <form onSubmit={displayChange}>
+               <div className="question"> Question: {`${props.questions.question}?`} </div>
+                <form className="question-input" onSubmit={displayChange}>
                     {/*Answer One*/}
-                    <input
-                        type="radio"
-                        name={props.questions._id}
-                        value={props.questions.options[0].isCorrect}
-                        onChange={selected}
-                    />
+                    <label>
+                        <input
+                            type="radio"
+                            name={props.questions._id}
+                            value={props.questions.options[0].isCorrect}
+                            onChange={selected}
+                        />
+                    </label>
                     {props.questions.options[0].answer}
 
                     {/*Answer Two*/}
-                    <input
-                        type="radio"
-                        name={props.questions._id}
-                        value={props.questions.options[1].isCorrect}
-                        onChange={selected}
-                    />
+                    <label>
+                        <input
+                            type="radio"
+                            name={props.questions._id}
+                            value={props.questions.options[1].isCorrect}
+                            onChange={selected}
+                        />
+                    </label>
                     {props.questions.options[1].answer}
 
                     {/*Answer Three*/}
-                    <input
-                        type="radio"
-                        name={props.questions._id}
-                        value={props.questions.options[2].isCorrect}
-                        onChange={selected}
-                    />
+                    <label>
+                        <input
+                            type="radio"
+                            name={props.questions._id}
+                            value={props.questions.options[2].isCorrect}
+                            onChange={selected}
+                        />
+                    </label>
                     {props.questions.options[2].answer}
 
                     {/*Answer Four*/}
-                    <input
-                        type="radio"
-                        name={props.questions._id}
-                        value={props.questions.options[3].isCorrect}
-                        onChange={selected}
-                    />
+                    <label>
+                        <input
+                            type="radio"
+                            name={props.questions._id}
+                            value={props.questions.options[3].isCorrect}
+                            onChange={selected}
+                        />
+                    </label>
                     {props.questions.options[3].answer}
                     <br/>
                     <button>Submit Question</button>
