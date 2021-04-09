@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.17",
     "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": "12.18.0"
   }
 }
